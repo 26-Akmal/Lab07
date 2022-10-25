@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -24,5 +25,12 @@ public class Player : MonoBehaviour
             thisAnimation.Play();
         }
             
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Death")
+        {
+            SceneManager.LoadScene("GameOverScene");
+        }
     }
 }
